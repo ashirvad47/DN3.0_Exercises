@@ -1,0 +1,18 @@
+
+public class PaymentProcessorTest {
+    public static void main(String[] args) {
+        // Create PayPal adapter
+        PayPalGateway payPalGateway = new PayPalGateway();
+        PaymentProcessor payPalAdapter = new PayPalAdapter(payPalGateway);
+
+        // Process payment using PayPal
+        payPalAdapter.processPayment("Credit Card", 100.0);
+
+        // Create Stripe adapter
+        StripeGateway stripeGateway = new StripeGateway();
+        PaymentProcessor stripeAdapter = new StripeAdapter(stripeGateway);
+
+        // Process payment using Stripe
+        stripeAdapter.processPayment("Debit Card", 50.0);
+    }
+}

@@ -1,0 +1,22 @@
+
+public class NotifierTest {
+    public static void main(String[] args) {
+        // Create an email notifier
+        Notifier emailNotifier = new EmailNotifier();
+
+        // Send email notification
+        emailNotifier.send("Hello, this is an email notification.");
+
+        // Create an SMS decorator for the email notifier
+        Notifier smsNotifier = new SMSNotifierDecorator(emailNotifier);
+
+        // Send SMS notification
+        smsNotifier.send("Hello, this is an SMS notification.");
+
+        // Create a Slack decorator for the SMS notifier
+        Notifier slackNotifier = new SlackNotifierDecorator(smsNotifier);
+
+        // Send Slack notification
+        slackNotifier.send("Hello, this is a Slack notification.");
+    }
+}
